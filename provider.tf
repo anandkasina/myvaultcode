@@ -4,5 +4,7 @@ provider "vault" {
 }
 
 provider "aws" {
-  region = var.region
+  region     = var.region
+  access_key = data.vault_aws_access_credentials.aws.access_key
+  secret_key = data.vault_aws_access_credentials.aws.secret_key
 }
